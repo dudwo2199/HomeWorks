@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. 동적 요소가 포함된 웹페이지 만들기 (제출X , 발표X , but 다음주에 발표)</title>
+    <style>
+        #divBox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #clrBox {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(128, 128, 128);
+        }
+    </style>
+</head>
+<h1>3. 동적 요소가 포함된 웹페이지 만들기 (제출X , 발표X , but 다음주에 발표)</h1>
+<hr>
+<button onclick="doWelcome();">눌러봐염</button>
+<hr>
+<div id="divBox" onclick="onChangeDiv();" style="width: 100px; height: 100px; background-color: red;">
+    holy crap!
+</div>
+<hr>
+
+<span>who a u?</span>
+<br>
+<button onclick="onSign();">Sign</button>
+<hr>
+<div id="toggle" class="nuclear">Nuclear</div>
+<button onclick="onToggle();">무야호</button>
+
+<hr>
+
+<div id="clrBox"></div>
+<fieldset>
+    <legend>색상 선택</legend>
+    <label for="r">R</label>
+    <input type="number" id="r" value="128" placeholder="0~255" min="0" max="255">
+    <label for="g">G</label>
+    <input type="number" id="g" value="128" placeholder="0~255" min="0" max="255">
+    <label for="b">B</label>
+    <input type="number" id="b" value="128" placeholder="0~255" min="0" max="255">
+    <br>
+    <button onclick="onApply();">색 적용</button>
+    <button onclick="onRandApply();">랜덤 색 적용</button>
+</fieldset>
+
+<body>
+
+    <script>
+        function doWelcome() {
+            alert('환영합니다');
+        }
+
+        let toggle = false;
+        function onChangeDiv() {
+            const divBox = document.querySelector("#divBox");
+
+            toggle = !toggle;
+            if (toggle) {
+                divBox.style.width = '200px';
+                divBox.style.height = '200px';
+                divBox.style.backgroundColor = 'blue';
+                divBox.style.color = 'orange';
+
+                divBox.innerHTML = 'holy crap!<br>holy crap!<br>holy crap!<br>holy crap!<br>holy crap!<br>';
+            }
+            else {
+                divBox.style.width = '100px';
+                divBox.style.height = '100px';
+                divBox.style.backgroundColor = 'red';
+                divBox.style.color = '#2e8d86';
+                divBox.innerHTML = 'holy crap!';
+            }
+        }
+
+        function onSign() {
+            const span = document.querySelector("span");
+            span.innerHTML = prompt('이름을 입력하세요');
+        }
+
+        function onToggle() {
+            const nuclear = document.querySelector("#toggle");
+            nuclear.classList.toggle("nuclear");
+            nuclear.innerHTML = nuclear.classList.contains("nuclear") ? "Nuclear" : "Nuclear Off";
+        }
+
+        function onApply() {
+            const r = document.querySelector("#r").value;
+            const g = document.querySelector("#g").value;
+            const b = document.querySelector("#b").value;
+
+            const clrBox = document.querySelector("#clrBox");
+            clrBox.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        }
+
+        function onRandApply() {
+            const editR = document.querySelector("#r");
+            const editG = document.querySelector("#g");
+            const editB = document.querySelector("#b");
+            const inputDivColor = document.querySelector("#inputDivColor");
+
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+
+            editR.value = r;
+            editG.value = g;
+            editB.value = b;
+
+            const clrBox = document.querySelector("#clrBox");
+            clrBox.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        }
+    </script>
+</body>
+
+</html>
