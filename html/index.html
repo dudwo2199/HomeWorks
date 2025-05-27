@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서관리v0.0.1</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <script defer src="../js/index.js"></script>
+</head>
+
+<body>
+    <h1>도서관리</h1>
+    <hr>
+
+    <button class="doModal">책 등록</button>
+
+
+    <table>
+        <thead>
+            <tr class="header">
+                <th class="cell serial" scope="col">Serial No</td>
+                <th class="cell" scope="col">등록일</td>
+                <th class="cell title" scope="col">제목</td>
+                <th class="cell" scope="col">저자</td>
+                <th class="cell" scope="col">가격</td>
+                <th class="cell" scope="col">출간일</td>
+            </tr>
+        </thead>
+        <tbody class="tableBody">
+            <tr class="highlight">
+                <td class="cell">1</td>
+                <td class="cell">2015/11/20</td>
+                <td class="cell">해리포터</td>
+                <td class="cell">JK</td>
+                <td class="cell">12,000</td>
+                <td class="cell">2004/05/12</td>
+            </tr>
+            <tr class="highlight">
+                <td class="cell">2</td>
+                <td class="cell">2011/04/04</td>
+                <td class="cell">박수진</td>
+                <td class="cell">여</td>
+                <td class="cell">12,000</td>
+                <td class="cell">2004/05/12</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="footer">
+                <td class="cell total-row" colspan="6">총 2건</td>
+            </tr>
+    </table>
+
+    <div class="modal">
+        <div class="modal_body">
+            <button class="modal-close" onclick="modalClose();">x</button>
+            <h2>등록 정보</h2>
+            <form class="bookForm">
+                <label for="serial">등록번호 </label>
+                <input type="text" id="serial" name="serial" disabled value="1">
+                <br>
+                <label for="regDate">등록일 </label>
+                <input type="date" id="regDate" name="regDate" disabled value="2023-10-01">
+                <br>
+                <label for="title">제목 </label>
+                <input type="text" id="title" name="title" placeholder="제목을 입력하셈" required>
+                <br>
+                <label for="author">저자 </label>
+                <input type="text" id="author" name="author" placeholder="저자를 입력하셈" required>
+                <br>
+                <label for="price">가격 </label>
+                <input type="number" id="price" name="price" placeholder="가격을 입력 하셈" required>
+                <br>
+                <label for="publishDate">출간일 </label>
+                <input type="date" id="publishDate" name="publishDate">
+                <br>
+                <br>
+                <br>
+                <button type="submit" style="height: 50px;width: 100%;">등록</button>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+table {
+    border-collapse: collapse;
+}
+
+.cell {
+    text-align: center;
+    border: 1px solid #000;
+
+    width: 100px;
+}
+
+.title {
+    width: 250px;
+}
+.serial {
+    width: 160px;
+}
+
+th {
+    height: 20px;
+}
+
+td {
+    height: 30px;
+}
+
+th {
+    background-color: lightgrey;
+}
+
+tr.highlight:hover {
+    background-color: aquamarine;
+}
+
+.total-row {
+    text-decoration: underline;
+    font-weight: bold;
+    background-color: lightblue;
+}
+
+.select {
+    border: 3px dashed yellowgreen;
+}
+
+.modal {
+    position: absolute;
+    display: flex;
+    visibility: hidden;
+
+    justify-content: center;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal_body {
+    position: absolute;
+    top: 50%;
+
+    width: 400px;
+    height: 300px;
+
+    padding: 40px;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+    transform: translateY(-50%);
+}
+
+.modal_body .modal-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
