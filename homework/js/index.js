@@ -37,6 +37,7 @@ const bookArray = [];
 let seq_book = 0;
 
 onload = () => {
+    console.log("test");
     clearRow();
 
     const parseSEQ = localStorage.getItem("SEQ_BOOK");
