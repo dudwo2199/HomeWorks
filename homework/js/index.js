@@ -2,22 +2,24 @@ String.prototype.isEmpty = function () {
     return this.length === 0 || !this.trim();
 }
 
+Date.prototype.toYYYYMM = function () {
+    return `${this.getFullYear()}-${String(this.getMonth() + 1).padStart(2, "0")}`;
+}
+
+Date.prototype.toYYYYMMDD = function () {
+    return `${this.getFullYear()}-${String(this.getMonth() + 1).padStart(2, "0")}-${String(this.getDate()).padStart(2, "0")}`;
+}
+
 function toDateString(date) {
     return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 }
 
 function getSerial(date) {
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-    let hour = date.getHours();
-    let minute = date.getMinutes();
-    let second = date.getSeconds();
-
-    month = month >= 10 ? month : '0' + month;
-    day = day >= 10 ? day : '0' + day;
-    hour = hour >= 10 ? hour : '0' + hour;
-    minute = minute >= 10 ? minute : '0' + minute;
-    second = second >= 10 ? second : '0' + second;
+    let month = String(date.getMonth() + 1).padStart(2, "0");
+    let day = String(date.getDate()).padStart(2, "0");
+    let hour = String(date.getHours()).padStart(2, "0");
+    let minute = String(date.getMinutes()).padStart(2, "0");
+    let second = String(date.getSeconds()).padStart(2, "0");
 
     return date.getFullYear() + month + day + hour + minute + second;
 }
@@ -116,11 +118,11 @@ function addRow(book) {
     tr.classList.add("highlight");
     tr.innerHTML = `
         <td class='cell'>${book.serial}</td>
-        <td class='cell'>${toDateString(book.regDate)}</td>
+        <td class='cell'>${book.regDate.toYYYYMMDD()}</td>
         <td class='cell'>${book.title}</td>
         <td class='cell'>${book.author}</td>
         <td class='cell'>${book.price.toLocaleString()}원</td>
-        <td class='cell'>${toDateString(book.publishDate)}</td>
+        <td class='cell'>${book.publishDate.toYYYYMM()}</td>
         
     `;
     tableBody.appendChild(tr);
